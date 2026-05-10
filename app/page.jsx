@@ -176,7 +176,7 @@ export default function ResellLandingPage() {
         {/* CTA */}
         <div className="text-center mt-14">
           <button
-            onClick={copyDiscord}
+            onClick={() => setOpen(true)}
             className="bg-orange-400 hover:bg-orange-300 text-black rounded-full px-12 py-5 font-black text-lg hover:scale-105 transition duration-300"
           >
             지금 ₩5,000으로 시작하기
