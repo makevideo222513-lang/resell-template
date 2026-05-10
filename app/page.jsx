@@ -46,39 +46,39 @@ export default function ResellLandingPage() {
         <div className="absolute inset-0 bg-gradient-to-r from-red-950 via-orange-700 to-red-900 opacity-90" />
 
         {/* GLOW */}
-        <div className="absolute top-[-100px] left-[-100px] w-[400px] h-[400px] bg-orange-500/20 blur-[120px] rounded-full" />
+        <div className="absolute top-[-100px] left-[-100px] w-[250px] md:w-[400px] h-[250px] md:h-[400px] bg-orange-500/20 blur-[120px] rounded-full" />
 
-        <div className="absolute bottom-[-100px] right-[-100px] w-[400px] h-[400px] bg-red-500/20 blur-[120px] rounded-full" />
+        <div className="absolute bottom-[-100px] right-[-100px] w-[250px] md:w-[400px] h-[250px] md:h-[400px] bg-red-500/20 blur-[120px] rounded-full" />
 
         {/* FLOATING IMAGES */}
         <img
           src="/airpods.png"
           alt="airpods"
-          className="absolute top-[180px] left-[5%] w-32 md:w-44 rotate-[-10deg]"
+          className="absolute top-[140px] left-[2%] w-20 md:w-44 rotate-[-10deg] opacity-80"
         />
 
         <img
           src="/shoe.png"
           alt="shoe"
-          className="absolute top-[250px] right-[6%] w-40 md:w-52 rotate-[8deg]"
+          className="absolute top-[220px] right-[2%] w-24 md:w-52 rotate-[8deg] opacity-80"
         />
 
         <img
           src="/iphone.png"
           alt="iphone"
-          className="absolute bottom-[120px] left-[12%] w-28 md:w-40 rotate-[10deg]"
+          className="absolute bottom-[160px] left-[8%] w-16 md:w-40 rotate-[10deg] opacity-80"
         />
 
-        <div className="relative z-10 max-w-6xl mx-auto px-6 pt-32 text-center">
-          <p className="uppercase tracking-[0.3em] text-sm text-white/70 mb-5">
+        <div className="relative z-10 max-w-6xl mx-auto px-5 md:px-6 pt-28 md:pt-32 text-center">
+          <p className="uppercase tracking-[0.3em] text-[11px] md:text-sm text-white/70 mb-5">
             notion template for resellers
           </p>
 
-          <h1 className="text-6xl md:text-8xl font-black leading-none mb-6">
+          <h1 className="text-5xl md:text-8xl font-black leading-none mb-6">
             keep it simple.
           </h1>
 
-          <p className="max-w-2xl mx-auto text-lg md:text-xl text-white/75 leading-relaxed">
+          <p className="max-w-2xl mx-auto text-base md:text-xl text-white/75 leading-relaxed">
             복잡한 판매 기록과 정산을 하나의 노션 시스템으로 관리하세요.
             <br />
             <br />
@@ -86,12 +86,12 @@ export default function ResellLandingPage() {
           </p>
 
           {/* PRICE */}
-          <div className="mt-10 flex items-center justify-center gap-4">
-            <span className="text-2xl line-through text-white/40">
+          <div className="mt-10 flex items-center justify-center gap-3 md:gap-4">
+            <span className="text-lg md:text-2xl line-through text-white/40">
               ₩25,000
             </span>
 
-            <span className="text-5xl font-black text-green-400">
+            <span className="text-4xl md:text-5xl font-black text-green-400">
               ₩5,000
             </span>
           </div>
@@ -100,7 +100,7 @@ export default function ResellLandingPage() {
           <div className="mt-10">
             <button
               onClick={() => setOpen(true)}
-              className="px-8 py-4 rounded-2xl bg-white text-black font-bold text-lg hover:scale-105 transition"
+              className="w-full md:w-auto px-8 py-4 rounded-2xl bg-white text-black font-bold text-base md:text-lg hover:scale-105 transition"
             >
               템플릿 구매하기
             </button>
@@ -108,8 +108,8 @@ export default function ResellLandingPage() {
         </div>
 
         {/* HERO IMAGE */}
-        <div className="relative z-10 max-w-6xl mx-auto px-6 pt-20 pb-24">
-          <div className="rounded-[40px] overflow-hidden border border-white/10">
+        <div className="relative z-10 max-w-6xl mx-auto px-4 md:px-6 pt-16 md:pt-20 pb-20 md:pb-24">
+          <div className="rounded-[24px] md:rounded-[40px] overflow-hidden border border-white/10 shadow-2xl">
             <img
               src="/sales-management.png"
               alt="dashboard"
@@ -120,23 +120,25 @@ export default function ResellLandingPage() {
       </section>
 
       {/* FEATURES */}
-      <section className="max-w-6xl mx-auto px-6 py-24">
-        <div className="text-center mb-16">
-          <p className="text-orange-400 uppercase tracking-[0.2em] text-sm mb-4">
+      <section className="max-w-6xl mx-auto px-4 md:px-6 py-20 md:py-24">
+        <div className="text-center mb-14 md:mb-16">
+          <p className="text-orange-400 uppercase tracking-[0.2em] text-xs md:text-sm mb-4">
             features
           </p>
 
-          <h2 className="text-5xl font-black mb-6">
-            리셀 관리에 필요한 모든 기능
+          <h2 className="text-3xl md:text-5xl font-black mb-6 leading-tight">
+            리셀 관리에 필요한
+            <br className="md:hidden" />
+            모든 기능
           </h2>
 
-          <p className="text-white/60 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-white/60 max-w-2xl mx-auto leading-relaxed text-sm md:text-base">
             판매 관리부터 수익 분석까지,
             보기 쉽고 감각적인 노션 시스템.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
           {[
             {
               title: "전체 판매 관리",
@@ -161,7 +163,7 @@ export default function ResellLandingPage() {
           ].map((item) => (
             <div
               key={item.title}
-              className="rounded-[32px] overflow-hidden border border-white/10 bg-white/[0.03] hover:-translate-y-2 transition"
+              className="rounded-[28px] md:rounded-[32px] overflow-hidden border border-white/10 bg-white/[0.03] hover:-translate-y-2 transition"
             >
               <div className="aspect-[16/10] overflow-hidden">
                 <img
@@ -171,12 +173,12 @@ export default function ResellLandingPage() {
                 />
               </div>
 
-              <div className="p-7">
-                <h3 className="text-2xl font-bold mb-3">
+              <div className="p-5 md:p-7">
+                <h3 className="text-xl md:text-2xl font-bold mb-3">
                   {item.title}
                 </h3>
 
-                <p className="text-white/60">
+                <p className="text-white/60 text-sm md:text-base">
                   {item.desc}
                 </p>
               </div>
@@ -186,22 +188,22 @@ export default function ResellLandingPage() {
       </section>
 
       {/* CTA */}
-      <section className="px-6 pb-24">
-        <div className="max-w-5xl mx-auto rounded-[40px] overflow-hidden border border-white/10 relative">
+      <section className="px-4 md:px-6 pb-20 md:pb-24">
+        <div className="max-w-5xl mx-auto rounded-[28px] md:rounded-[40px] overflow-hidden border border-white/10 relative">
           <div className="absolute inset-0 bg-gradient-to-r from-red-950 via-orange-700 to-red-900" />
 
-          <div className="relative z-10 px-8 py-24 text-center">
-            <h2 className="text-5xl font-black mb-6">
+          <div className="relative z-10 px-6 md:px-8 py-20 md:py-24 text-center">
+            <h2 className="text-4xl md:text-5xl font-black mb-6">
               keep it simple.
             </h2>
 
-            <p className="max-w-2xl mx-auto text-white/75 text-lg mb-10 leading-relaxed">
+            <p className="max-w-2xl mx-auto text-white/75 text-sm md:text-lg mb-10 leading-relaxed">
               리셀 판매 관리를 더 쉽고 감각적으로.
             </p>
 
             <button
               onClick={() => setOpen(true)}
-              className="px-8 py-4 rounded-2xl bg-white text-black font-bold text-lg hover:scale-105 transition"
+              className="w-full md:w-auto px-8 py-4 rounded-2xl bg-white text-black font-bold text-base md:text-lg hover:scale-105 transition"
             >
               지금 시작하기
             </button>
@@ -211,42 +213,42 @@ export default function ResellLandingPage() {
 
       {/* MODAL */}
       {open && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur">
-          <div className="bg-white text-black rounded-[32px] overflow-hidden max-w-md w-full mx-4">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur px-4">
+          <div className="bg-white text-black rounded-[28px] md:rounded-[32px] overflow-hidden max-w-md w-full">
             {/* HEADER */}
-            <div className="bg-gradient-to-r from-red-950 via-orange-700 to-red-900 text-white text-center py-10">
-              <h2 className="text-4xl font-black">
+            <div className="bg-gradient-to-r from-red-950 via-orange-700 to-red-900 text-white text-center py-8 md:py-10">
+              <h2 className="text-3xl md:text-4xl font-black">
                 keep it simple.
               </h2>
             </div>
 
-            <div className="p-8">
+            <div className="p-6 md:p-8">
               {/* ACCOUNT */}
               <div className="text-center mb-8">
                 <p className="text-sm text-gray-500 mb-2">
                   아래 계좌로 입금해주세요
                 </p>
 
-                <p className="text-2xl font-black">
+                <p className="text-xl md:text-2xl font-black">
                   3521911012723
                 </p>
 
-                <p className="text-lg mt-1">
+                <p className="text-base md:text-lg mt-1">
                   지승현
                 </p>
               </div>
 
               {/* DISCORD */}
-              <div className="rounded-3xl border border-orange-500/20 bg-gradient-to-br from-orange-500/10 to-black p-6 mb-6 text-center">
-                <p className="text-sm text-orange-300 uppercase tracking-[0.2em] mb-3">
+              <div className="rounded-3xl border border-orange-500/20 bg-gradient-to-br from-orange-500/10 to-black p-5 md:p-6 mb-6 text-center">
+                <p className="text-xs md:text-sm text-orange-300 uppercase tracking-[0.2em] mb-3">
                   DISCORD
                 </p>
 
-                <p className="text-3xl font-black text-white mb-3">
+                <p className="text-2xl md:text-3xl font-black text-white mb-3">
                   davidsix06
                 </p>
 
-                <p className="text-sm text-white/70 leading-relaxed">
+                <p className="text-xs md:text-sm text-white/70 leading-relaxed">
                   입금 후 디스코드 친구추가 후
                   <br />
                   이메일과 입금자명을 보내주세요
@@ -270,7 +272,7 @@ export default function ResellLandingPage() {
               </button>
 
               {/* POLICY */}
-              <div className="mt-6 text-sm text-gray-400 leading-relaxed">
+              <div className="mt-6 text-xs md:text-sm text-gray-400 leading-relaxed">
                 <details>
                   <summary className="cursor-pointer">
                     환불정책 및 저작권 안내
