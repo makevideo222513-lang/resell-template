@@ -5,6 +5,8 @@ import { useState } from "react";
 export default function ResellLandingPage() {
   const [open, setOpen] = useState(false);
   const [done, setDone] = useState(false);
+  const [email, setEmail] = useState("");
+  const [emailError, setEmailError] = useState(false);
 
   const screenshots = [
     "/images/1.png",
@@ -13,6 +15,23 @@ export default function ResellLandingPage() {
     "/images/4.png",
     "/images/5.png",
   ];
+
+  const validateEmail = (value: string) => {
+    const regex =
+      /^[a-zA-Z0-9._%+-]+@(gmail\.com|naver\.com|daum\.net|kakao\.com)$/;
+
+    return regex.test(value);
+  };
+
+  const handleSubmit = () => {
+    if (!validateEmail(email)) {
+      setEmailError(true);
+      return;
+    }
+
+    setEmailError(false);
+    setDone(true);
+  };
 
   return (
     <div className="min-h-screen bg-black text-white font-sans">
@@ -49,7 +68,10 @@ export default function ResellLandingPage() {
           {/* 버튼 */}
           <div className="flex flex-wrap items-center justify-center gap-4 mt-10">
             <button
-              onClick={() => setOpen(true)}
+              onClick={() => {
+                setOpen(true);
+                setDone(false);
+              }}
               className="px-7 py-4 rounded-2xl bg-white text-black font-semibold hover:scale-105 transition"
             >
               템플릿 구매하기
@@ -146,34 +168,6 @@ export default function ResellLandingPage() {
         </div>
       </section>
 
-      {/* SHOWCASE */}
-      <section className="max-w-7xl mx-auto px-6 py-24">
-        <div className="text-center mb-12">
-          <p className="text-orange-400 uppercase tracking-[0.2em] text-sm mb-3">
-            preview
-          </p>
-
-          <h2 className="text-5xl font-black">
-            실제 템플릿 화면
-          </h2>
-        </div>
-
-        <div className="space-y-10">
-          {screenshots.map((img, index) => (
-            <div
-              key={index}
-              className="rounded-[32px] overflow-hidden border border-white/10 bg-white/[0.03]"
-            >
-              <img
-                src={img}
-                alt={`template-${index}`}
-                className="w-full object-cover"
-              />
-            </div>
-          ))}
-        </div>
-      </section>
-
       {/* CTA */}
       <section className="px-6 pb-24">
         <div className="max-w-5xl mx-auto rounded-[40px] overflow-hidden relative border border-white/10">
@@ -194,7 +188,10 @@ export default function ResellLandingPage() {
             </p>
 
             <button
-              onClick={() => setOpen(true)}
+              onClick={() => {
+                setOpen(true);
+                setDone(false);
+              }}
               className="px-8 py-4 rounded-2xl bg-white text-black font-bold text-lg hover:scale-105 transition"
             >
               지금 시작하기
@@ -206,7 +203,7 @@ export default function ResellLandingPage() {
       {/* MODAL */}
       {open && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur">
-          <div className="bg-white text-black rounded-[32px] overflow-hidden max-w-md w-full mx-4 animate-[bounce_0.5s]">
+          <div className="bg-white text-black rounded-[32px] overflow-hidden max-w-md w-full mx-4">
             {/* 배너 */}
             <div className="bg-gradient-to-r from-red-950 via-orange-700 to-red-900 text-white text-center py-10">
               <h2 className="text-4xl font-black">
@@ -234,9 +231,17 @@ export default function ResellLandingPage() {
                   {/* 이메일 */}
                   <input
                     type="email"
-                    placeholder="전송받을 이메일을 작성해주세요"
-                    className="w-full mb-4 px-5 py-4 rounded-2xl bg-black/5 border border-black/10 outline-none"
+                    placeholder="gmail / naver / daum / kakao 이메일만 가능합니다"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className="w-full mb-2 px-5 py-4 rounded-2xl bg-black/5 border border-black/10 outline-none"
                   />
+
+                  {emailError && (
+                    <p className="text-red-500 text-sm mb-4">
+                      다시 입력해주세요
+                    </p>
+                  )}
 
                   {/* 입금자명 */}
                   <input
@@ -246,8 +251,8 @@ export default function ResellLandingPage() {
                   />
 
                   <button
-                    onClick={() => setDone(true)}
-                    className="w-full py-4 rounded-2xl bg-black text-white font-bold hover:scale-[1.02] active:scale-95 transition"
+                    onClick={handleSubmit}
+                    className="w-full py-4 rounded-2xl bg-black text-white font-bold hover:opacity-90 transition"
                   >
                     입금완료
                   </button>
@@ -272,7 +277,7 @@ export default function ResellLandingPage() {
                   </div>
                 </>
               ) : (
-                <div className="text-center py-10 animate-bounce">
+                <div className="text-center py-10">
                   <h3 className="text-4xl font-black mb-4">
                     구매완료
                   </h3>
