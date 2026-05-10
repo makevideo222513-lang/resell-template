@@ -132,7 +132,7 @@ export default function ResellLandingPage() {
 
             <div className="relative rounded-[26px] md:rounded-[40px] overflow-hidden border border-white/10 shadow-2xl">
               <img
-                src="/sales-management.png"
+                src="Screenshot 2026-05-10 202632.png"
                 alt="dashboard"
                 className="w-full object-cover"
               />
