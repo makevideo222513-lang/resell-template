@@ -454,9 +454,9 @@ export default function ResellLandingPage() {
                 </p>
 
                 <p className="text-sm text-gray-500 leading-relaxed">
-                  입금 후 Discord 친구추가 후
+                  입금을 완료 하셨다면 디스코드 친추 후
                   <br />
-                  메시지를 보내주세요.
+                  입금자명 및 메세지를 보내주세요.
                 </p>
               </div>
 
