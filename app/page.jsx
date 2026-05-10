@@ -1,9 +1,10 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Lenis from "lenis";
 
 export default function ResellLandingPage() {
+  const [open, setOpen] = useState(false);
   useEffect(() => {
     const lenis = new Lenis({
       duration: 1,
@@ -118,7 +119,7 @@ export default function ResellLandingPage() {
           {/* BUTTON */}
           <div className="mt-8">
             <button
-              onClick={copyDiscord}
+              onClick={() => setOpen(true)}
               className="w-full md:w-auto bg-orange-400 hover:bg-orange-300 text-black rounded-full px-10 py-4 font-black text-base md:text-lg hover:scale-[1.03] transition duration-300 shadow-2xl"
             >
               템플릿 구매하기
@@ -403,6 +404,114 @@ export default function ResellLandingPage() {
           </button>
         </div>
       </section>
+            {open && (
+        <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center px-5 animate-in fade-in duration-300">
+          <div className="w-full max-w-md rounded-[36px] bg-white text-black overflow-hidden shadow-[0_20px_80px_rgba(0,0,0,0.5)] border border-white/20">
+
+            {/* TOP */}
+            <div className="bg-gradient-to-b from-orange-400 to-orange-300 px-8 pt-10 pb-8 text-center">
+              <p className="uppercase tracking-[0.35em] text-[11px] font-bold text-black/50 mb-3">
+                purchase
+              </p>
+
+              <h2 className="text-4xl font-black tracking-[-0.06em] text-black">
+                TEMPLATE
+              </h2>
+
+              <p className="mt-3 text-black/70 text-sm leading-relaxed">
+                입금 후 Discord로 연락주시면
+                <br />
+                템플릿 링크를 바로 전달드립니다.
+              </p>
+            </div>
+
+            {/* BODY */}
+            <div className="p-8">
+
+              {/* ACCOUNT */}
+              <div className="rounded-[28px] bg-black text-white p-7 text-center mb-6">
+                <p className="uppercase tracking-[0.25em] text-xs text-white/40 mb-3">
+                  account
+                </p>
+
+                <p className="text-3xl font-black tracking-[-0.04em]">
+                  3521911012723
+                </p>
+
+                <p className="mt-2 text-white/70">
+                  지승현
+                </p>
+              </div>
+
+              {/* DISCORD */}
+              <div className="rounded-[28px] border border-black/10 bg-black/[0.03] p-6 mb-6">
+                <p className="uppercase tracking-[0.25em] text-xs text-gray-400 mb-3">
+                  discord
+                </p>
+
+                <p className="text-2xl font-black mb-2">
+                  davidsix06
+                </p>
+
+                <p className="text-sm text-gray-500 leading-relaxed">
+                  입금 후 Discord 친구추가 후
+                  <br />
+                  메시지를 보내주세요.
+                </p>
+              </div>
+
+              {/* BUTTON */}
+              <button
+                onClick={() => {
+                  navigator.clipboard.writeText("davidsix06");
+
+                  alert(
+                    "Discord 아이디가 복사되었습니다.\n입금 후 Discord로 연락해주세요."
+                  );
+                }}
+                className="w-full py-4 rounded-2xl bg-orange-400 hover:bg-orange-300 text-black font-black text-lg transition duration-300 hover:scale-[1.02] mb-3"
+              >
+                디스코드 아이디 복사
+              </button>
+
+              {/* CLOSE */}
+              <button
+                onClick={() => setOpen(false)}
+                className="w-full py-3 text-gray-400 hover:text-black transition"
+              >
+                닫기
+              </button>
+
+              {/* REFUND */}
+              <div className="mt-6 pt-6 border-t border-black/10 text-sm text-gray-400 leading-relaxed">
+                <details>
+                  <summary className="cursor-pointer font-medium">
+                    환불정책 및 저작권 안내
+                  </summary>
+
+                  <div className="mt-4 space-y-3">
+                    <p>
+                      디지털 콘텐츠 특성상 구매 후 즉시 복제가 가능하므로
+                      단순 변심에 의한 환불은 불가합니다.
+                    </p>
+
+                    <p>
+                      구매 완료 후 전달된 노션 템플릿 링크 및 구성 요소의
+                      무단 공유, 재판매, 재배포를 금지합니다.
+                    </p>
+
+                    <p>
+                      2차 배포 및 상업적 무단 사용 적발 시
+                      저작권법에 따라 법적 책임이 발생할 수 있습니다.
+                    </p>
+                  </div>
+                </details>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      )}
     </main>
   );
 }
