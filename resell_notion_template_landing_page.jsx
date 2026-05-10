@@ -1,75 +1,305 @@
-{/* MODAL */}
-{open && (
-  <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur">
-    <div className="bg-white text-black rounded-[32px] overflow-hidden max-w-md w-full mx-4">
+"use client";
 
-      {/* Banner */}
-      <div className="h-40 bg-gradient-to-r from-red-900 via-orange-600 to-red-800 flex items-center justify-center">
-        <h2 className="text-3xl font-black text-white">
-          KEEP IT SIMPLE
-        </h2>
-      </div>
+import { useState } from "react";
 
-      <div className="p-8">
-        {/* Price */}
-        <div className="flex items-end gap-3 mb-6">
-          <span className="text-zinc-400 line-through text-xl">
-            ₩25,000
-          </span>
+export default function ResellLandingPage() {
+  const [open, setOpen] = useState(false);
 
-          <span className="text-4xl font-black text-green-500">
-            ₩5,000
-          </span>
+  // 이미지 파일명 영어로 변경
+  const screenshots = [
+    "/images/overall-sales-management.png",
+    "/images/product-gallery.png",
+    "/images/monthly-sales-calendar.png",
+    "/images/category-analysis.png",
+    "/images/template-preview.png",
+  ];
+
+  const handleSubmit = () => {
+    navigator.clipboard.writeText("davidsix06");
+
+    alert(
+      "Discord 아이디가 복사되었습니다.\n입금 후 Discord로 연락해주세요."
+    );
+  };
+
+  return (
+    <div className="min-h-screen bg-black text-white font-sans">
+      {/* HERO */}
+      <section className="relative overflow-hidden border-b border-white/10">
+        <div className="absolute inset-0 bg-gradient-to-r from-red-950 via-orange-700 to-red-900 opacity-90" />
+
+        <div className="relative z-10 max-w-6xl mx-auto px-6 py-28 text-center">
+          <p className="uppercase tracking-[0.3em] text-sm text-white/70 mb-5">
+            notion template for resellers
+          </p>
+
+          <h1 className="text-6xl md:text-8xl font-black leading-none mb-6">
+            keep it simple.
+          </h1>
+
+          <p className="max-w-2xl mx-auto text-lg md:text-xl text-white/75 leading-relaxed">
+            리셀러를 위한 올인원 노션 템플릿.
+            판매 관리, 수익 분석, 캘린더, 카테고리별 정리까지
+            한 번에 관리하세요.
+          </p>
+
+          {/* 가격 */}
+          <div className="mt-10 flex items-center justify-center gap-4">
+            <span className="text-2xl text-white/40 line-through">
+              ₩25,000
+            </span>
+
+            <span className="text-5xl font-black text-green-400">
+              ₩5,000
+            </span>
+          </div>
+
+          {/* 버튼 */}
+          <div className="flex flex-wrap items-center justify-center gap-4 mt-10">
+            <button
+              onClick={() => setOpen(true)}
+              className="px-7 py-4 rounded-2xl bg-white text-black font-semibold hover:scale-105 transition"
+            >
+              템플릿 구매하기
+            </button>
+
+            <button className="px-7 py-4 rounded-2xl border border-white/20 bg-white/5 backdrop-blur hover:bg-white/10 transition">
+              미리보기 보기
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* STATS */}
+      <section className="max-w-6xl mx-auto px-6 py-16 grid grid-cols-2 md:grid-cols-4 gap-5">
+        {[
+          ["5", "관리 뷰"],
+          ["100%", "다크 UI"],
+          ["올인원", "리셀 관리"],
+          ["Simple", "미니멀 디자인"],
+        ].map(([title, sub]) => (
+          <div
+            key={title}
+            className="rounded-3xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur"
+          >
+            <div className="text-3xl font-black mb-2">{title}</div>
+            <div className="text-white/60">{sub}</div>
+          </div>
+        ))}
+      </section>
+
+      {/* FEATURES */}
+      <section className="max-w-6xl mx-auto px-6 py-10">
+        <div className="mb-14">
+          <p className="text-orange-400 mb-3 uppercase tracking-[0.2em] text-sm">
+            features
+          </p>
+
+          <h2 className="text-4xl md:text-5xl font-black mb-4">
+            리셀 관리에 필요한
+            <br />
+            모든 기능.
+          </h2>
+
+          <p className="text-white/60 max-w-2xl leading-relaxed">
+            복잡한 엑셀 대신, 보기 쉬운 노션 시스템으로 판매 현황과
+            수익을 직관적으로 관리할 수 있습니다.
+          </p>
         </div>
 
-        {/* Account */}
-        <div className="rounded-2xl bg-zinc-100 p-5 mb-6">
-          <p className="text-sm text-zinc-500 mb-2">
-            입금 계좌
+        <div className="grid md:grid-cols-2 gap-8">
+          {[
+            {
+              title: "전체 판매 관리",
+              desc: "매출, 지출, 수익률까지 한눈에 확인 가능",
+              img: screenshots[0],
+            },
+            {
+              title: "상품 갤러리",
+              desc: "판매 상품을 카드 형식으로 깔끔하게 정리",
+              img: screenshots[1],
+            },
+            {
+              title: "월별 판매 캘린더",
+              desc: "판매 일정을 캘린더로 시각화",
+              img: screenshots[2],
+            },
+            {
+              title: "카테고리 분석",
+              desc: "신발, 의류, 전자제품 등 카테고리별 분석",
+              img: screenshots[3],
+            },
+          ].map((item) => (
+            <div
+              key={item.title}
+              className="rounded-[32px] overflow-hidden border border-white/10 bg-white/[0.03]"
+            >
+              <div className="aspect-[16/10] overflow-hidden">
+                <img
+                  src={item.img}
+                  alt={item.title}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+
+              <div className="p-7">
+                <h3 className="text-2xl font-bold mb-3">{item.title}</h3>
+
+                <p className="text-white/60 leading-relaxed">
+                  {item.desc}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* SHOWCASE */}
+      <section className="max-w-7xl mx-auto px-6 py-24">
+        <div className="text-center mb-12">
+          <p className="text-orange-400 uppercase tracking-[0.2em] text-sm mb-3">
+            preview
           </p>
 
-          <p className="text-2xl font-black tracking-wide">
-            3521911012723
-          </p>
-
-          <p className="text-lg mt-1">
-            지승현
-          </p>
+          <h2 className="text-5xl font-black">
+            실제 템플릿 화면
+          </h2>
         </div>
 
-        {/* Email */}
-        <div className="mb-6">
-          <input
-            type="email"
-            placeholder="전송받을 이메일을 작성해주세요"
-            className="w-full rounded-2xl border border-zinc-300 px-5 py-4 outline-none focus:border-black transition"
-          />
+        <div className="space-y-10">
+          {screenshots.map((img, index) => (
+            <div
+              key={index}
+              className="rounded-[32px] overflow-hidden border border-white/10 bg-white/[0.03]"
+            >
+              <img
+                src={img}
+                alt={`template-${index}`}
+                className="w-full object-cover"
+              />
+            </div>
+          ))}
         </div>
+      </section>
 
-        {/* Button */}
-        <button className="w-full py-4 rounded-2xl bg-black text-white font-bold text-lg mb-4 hover:opacity-90 transition">
-          입금 완료
-        </button>
+      {/* CTA */}
+      <section className="px-6 pb-24">
+        <div className="max-w-5xl mx-auto rounded-[40px] overflow-hidden relative border border-white/10">
+          <div className="absolute inset-0 bg-gradient-to-r from-red-950 via-orange-700 to-red-900" />
 
-        {/* Refund */}
-        <div className="rounded-2xl bg-zinc-100 p-5">
-          <p className="font-bold mb-2">
-            환불 정책
-          </p>
+          <div className="relative z-10 text-center px-8 py-24">
+            <p className="uppercase tracking-[0.2em] text-sm text-white/70 mb-4">
+              resell notion template
+            </p>
 
-          <p className="text-sm text-zinc-600 leading-relaxed">
-            해당 상품은 1회 구매시 환불이 불가합니다.
-          </p>
+            <h2 className="text-5xl md:text-6xl font-black mb-6 leading-tight">
+              keep it simple.
+            </h2>
+
+            <p className="max-w-2xl mx-auto text-white/75 text-lg leading-relaxed mb-10">
+              리셀 판매 관리에 집중할 수 있도록.
+              복잡함은 줄이고, 관리 효율은 높였습니다.
+            </p>
+
+            <button
+              onClick={() => setOpen(true)}
+              className="px-8 py-4 rounded-2xl bg-white text-black font-bold text-lg hover:scale-105 transition"
+            >
+              지금 시작하기
+            </button>
+          </div>
         </div>
+      </section>
 
-        {/* Close */}
-        <button
-          onClick={() => setOpen(false)}
-          className="w-full mt-4 py-4 rounded-2xl border border-zinc-300"
-        >
-          닫기
-        </button>
-      </div>
+      {/* MODAL */}
+      {open && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur">
+          <div className="bg-white text-black rounded-[32px] overflow-hidden max-w-md w-full mx-4">
+            {/* 배너 */}
+            <div className="bg-gradient-to-r from-red-950 via-orange-700 to-red-900 text-white text-center py-10">
+              <h2 className="text-4xl font-black">
+                keep it simple.
+              </h2>
+            </div>
+
+            <div className="p-8">
+              {/* 계좌 */}
+              <div className="mb-8 text-center">
+                <p className="text-sm text-gray-500 mb-2">
+                  아래 계좌로 입금해주세요
+                </p>
+
+                <p className="text-2xl font-black">
+                  3521911012723
+                </p>
+
+                <p className="text-lg mt-1">
+                  지승현
+                </p>
+              </div>
+
+              {/* DISCORD */}
+              <div className="rounded-3xl border border-black/10 bg-black/[0.03] p-6 mb-6 text-center">
+                <p className="text-sm text-gray-500 mb-3 uppercase tracking-[0.2em]">
+                  DISCORD
+                </p>
+
+                <p className="text-3xl font-black mb-3">
+                  davidsix06
+                </p>
+
+                <p className="text-sm text-gray-500 leading-relaxed">
+                  입금 후 친구추가하여
+                  <br />
+                  이메일 + 입금자명을 보내주세요
+                </p>
+              </div>
+
+              {/* 버튼 */}
+              <button
+                onClick={handleSubmit}
+                className="w-full py-4 rounded-2xl bg-black text-white font-bold hover:opacity-90 transition mb-3"
+              >
+                디스코드 아이디 복사
+              </button>
+
+              {/* 닫기 */}
+              <button
+                onClick={() => setOpen(false)}
+                className="w-full py-3 text-gray-500"
+              >
+                닫기
+              </button>
+
+              {/* 환불 */}
+              <div className="mt-6 text-sm text-gray-400 leading-relaxed">
+                <details>
+                  <summary className="cursor-pointer">
+                    환불정책 및 저작권 안내
+                  </summary>
+
+                  <div className="mt-3 space-y-3">
+                    <p>
+                      디지털 콘텐츠 특성상 구매 후 즉시 복제가 가능하므로
+                      단순 변심에 의한 환불은 불가합니다.
+                    </p>
+
+                    <p>
+                      구매 완료 후 전달된 노션 템플릿 링크 및 구성 요소의
+                      무단 공유, 재판매, 재배포를 금지합니다.
+                    </p>
+
+                    <p>
+                      2차 배포 및 상업적 무단 사용 적발 시
+                      저작권법에 따라 법적 책임이 발생할 수 있습니다.
+                    </p>
+                  </div>
+                </details>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
-  </div>
-)}
+  );
+}
