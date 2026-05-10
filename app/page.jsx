@@ -42,7 +42,7 @@ export default function ResellLandingPage() {
   return (
     <div className="min-h-screen bg-black text-white overflow-hidden">
       {/* HERO */}
-      <section className="relative min-h-screen overflow-hidden border-b border-white/10">
+      <section className="relative min-h-[90vh] overflow-hidden border-b border-white/10">
         <div className="absolute inset-0 bg-gradient-to-r from-red-950 via-orange-700 to-red-900 opacity-90" />
 
         {/* GLOW */}
@@ -54,39 +54,43 @@ export default function ResellLandingPage() {
         <img
           src="/airpods.png"
           alt="airpods"
-          className="absolute top-[140px] left-[2%] w-20 md:w-44 rotate-[-10deg] opacity-80"
+          className="absolute top-[190px] left-[-10px] w-16 md:w-44 rotate-[-10deg] opacity-70"
         />
 
         <img
           src="/shoe.png"
           alt="shoe"
-          className="absolute top-[220px] right-[2%] w-24 md:w-52 rotate-[8deg] opacity-80"
+          className="absolute top-[360px] right-[-10px] w-20 md:w-52 rotate-[8deg] opacity-70"
         />
 
         <img
           src="/iphone.png"
           alt="iphone"
-          className="absolute bottom-[160px] left-[8%] w-16 md:w-40 rotate-[10deg] opacity-80"
+          className="absolute bottom-[120px] left-[-10px] w-14 md:w-40 rotate-[10deg] opacity-60"
         />
 
-        <div className="relative z-10 max-w-6xl mx-auto px-5 md:px-6 pt-28 md:pt-32 text-center">
-          <p className="uppercase tracking-[0.3em] text-[11px] md:text-sm text-white/70 mb-5">
+        <div className="relative z-10 max-w-6xl mx-auto px-5 md:px-6 pt-20 md:pt-32 text-center">
+          <p className="uppercase tracking-[0.3em] text-[10px] md:text-sm text-white/70 mb-5">
             notion template for resellers
           </p>
 
-          <h1 className="text-5xl md:text-8xl font-black leading-none mb-6">
+          <h1 className="text-4xl md:text-8xl font-black leading-none mb-5">
             keep it simple.
           </h1>
 
-          <p className="max-w-2xl mx-auto text-base md:text-xl text-white/75 leading-relaxed">
-            복잡한 판매 기록과 정산을 하나의 노션 시스템으로 관리하세요.
+          <p className="max-w-2xl mx-auto text-sm md:text-xl text-white/75 leading-relaxed">
+            복잡한 판매 기록과 정산을
+            <br className="md:hidden" />
+            하나의 노션 시스템으로 관리하세요.
             <br />
             <br />
-            리셀 판매 관리, 수익 분석, 상품 정리까지 한 번에.
+            리셀 판매 관리, 수익 분석,
+            <br className="md:hidden" />
+            상품 정리까지 한 번에.
           </p>
 
           {/* PRICE */}
-          <div className="mt-10 flex items-center justify-center gap-3 md:gap-4">
+          <div className="mt-8 flex items-center justify-center gap-3 md:gap-4">
             <span className="text-lg md:text-2xl line-through text-white/40">
               ₩25,000
             </span>
@@ -97,10 +101,10 @@ export default function ResellLandingPage() {
           </div>
 
           {/* BUTTON */}
-          <div className="mt-10">
+          <div className="mt-8">
             <button
               onClick={() => setOpen(true)}
-              className="w-full md:w-auto px-8 py-4 rounded-2xl bg-white text-black font-bold text-base md:text-lg hover:scale-105 transition"
+              className="w-full md:w-auto px-8 py-3 rounded-2xl bg-white text-black font-bold text-base md:text-lg hover:scale-105 transition duration-300"
             >
               템플릿 구매하기
             </button>
@@ -108,7 +112,7 @@ export default function ResellLandingPage() {
         </div>
 
         {/* HERO IMAGE */}
-        <div className="relative z-10 max-w-6xl mx-auto px-4 md:px-6 pt-16 md:pt-20 pb-20 md:pb-24">
+        <div className="relative z-10 max-w-6xl mx-auto px-4 md:px-6 pt-14 md:pt-20 pb-16 md:pb-24">
           <div className="rounded-[24px] md:rounded-[40px] overflow-hidden border border-white/10 shadow-2xl">
             <img
               src="/sales-management.png"
@@ -141,29 +145,29 @@ export default function ResellLandingPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
           {[
             {
-              title: "전체 판매 관리",
+              title: "Sales Management",
               desc: "매출과 수익률을 한눈에 확인",
               img: screenshots[0],
             },
             {
-              title: "상품 갤러리",
+              title: "Product Gallery",
               desc: "상품을 카드 형식으로 정리",
               img: screenshots[1],
             },
             {
-              title: "월별 판매 캘린더",
+              title: "Monthly Calendar",
               desc: "판매 일정을 직관적으로 관리",
               img: screenshots[2],
             },
             {
-              title: "카테고리 분석",
+              title: "Category Analytics",
               desc: "카테고리별 판매 흐름 분석",
               img: screenshots[3],
             },
           ].map((item) => (
             <div
               key={item.title}
-              className="rounded-[28px] md:rounded-[32px] overflow-hidden border border-white/10 bg-white/[0.03] hover:-translate-y-2 transition"
+              className="rounded-[28px] md:rounded-[32px] overflow-hidden border border-white/10 bg-white/[0.03] hover:-translate-y-2 transition duration-300"
             >
               <div className="aspect-[16/10] overflow-hidden">
                 <img
@@ -203,7 +207,7 @@ export default function ResellLandingPage() {
 
             <button
               onClick={() => setOpen(true)}
-              className="w-full md:w-auto px-8 py-4 rounded-2xl bg-white text-black font-bold text-base md:text-lg hover:scale-105 transition"
+              className="w-full md:w-auto px-8 py-3 rounded-2xl bg-white text-black font-bold text-base md:text-lg hover:scale-105 transition duration-300"
             >
               지금 시작하기
             </button>
@@ -258,7 +262,7 @@ export default function ResellLandingPage() {
               {/* BUTTON */}
               <button
                 onClick={handleSubmit}
-                className="w-full py-4 rounded-2xl bg-black text-white font-bold hover:opacity-90 transition mb-3"
+                className="w-full py-3 rounded-2xl bg-black text-white font-bold hover:opacity-90 transition duration-300 mb-3"
               >
                 디스코드 아이디 복사
               </button>
